@@ -14,9 +14,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         python-scipy \
         rsync \
         unzip \
-        julia
+       
+#RUN curl -ssL https://julialang-s3.julialang.org/bin/linux/arm/0.6/julia-0.6.0-linux-arm.tar.gz -o julia.tar.gz && \
+#    mkdir julia && tar xzf julia.tar.gz -C julia --strip-components=1
 
-RUN julia -e 'Pkg.add("IJulia")'
+#RUN julia -e 'Pkg.add("IJulia")'
 
 RUN  apt-get clean && \
         rm -rf /var/lib/apt/lists/*
