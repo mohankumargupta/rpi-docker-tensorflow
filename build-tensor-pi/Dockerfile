@@ -6,13 +6,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libfreetype6-dev \
         libpng12-dev \
         libzmq3-dev \
+        python3-zmq \
         pkg-config \
         python \
         python-dev \
         python-numpy \
         python-scipy \
         rsync \
-        unzip
+        unzip \
+        julia
+
+RUN julia -e 'Pkg.add("IJulia")'
 
 RUN  apt-get clean && \
         rm -rf /var/lib/apt/lists/*
